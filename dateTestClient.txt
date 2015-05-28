@@ -1,0 +1,32 @@
+#
+# Valoare initiala produse comandate
+#
+* initial_value 1
+3
+#
+* max_value 1
+16
+#
+* nrtelefonlungimemare_value 1
+07410761032
+#
+* nrtelefonlungimemica_value 1
+074107610
+#
+* cnplungimemare_value 1
+19304292800234
+#
+* cnplungimemica_value 1
+193042928002
+# Test sumaPlata() cu valori valide
+#
+* ok_values 3
+3	60.0
+2	40.0
+4	80.0
+#
+# Test setNrProd() cu valori negative
+#
+* negative_values 2
+-4
+-5
