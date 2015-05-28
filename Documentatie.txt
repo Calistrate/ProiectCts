@@ -1,0 +1,172 @@
+
+
+
+
+
+
+
+
+
+
+Proiect calitate si testare software
+
+
+
+
+
+
+
+
+Realizat de:Calistrate George Andrei 
+Grupa :1049
+Seria:A
+
+
+
+
+
+Scurta descriere a proiectului.
+Compania Byons srl vinde clientilor sai telefoane inteligente de tipul Smarthphone LG,Smarthphone Samsung si Spartphone HTC.Fiecare dintre aceste produse are un pret aferent.Clientii au posibilitatea efectuarii platii in doua modalitati:cash sau cu cardul.Modul de plata se decide in momentul platii(la run-time).Atunci cand clientii efectueaza plata cu cardul,suma de bani platita intra in contul companiei iar atunci cand acestia efectueaza plata cash banii intra in casa de marcat a companiei.Contul companiei este stocat  unic.In cadrul companiei,managerul acesteia are acces la cont avand posibilitatea efectuarii extragerii unei sume de bani.Pentru a simplifica procesul de vanzare se realizeaza o componenta de evaluare a situatiei telefoanelor ,cunoscandu-se faptul ca un produs poate fi disponibil,indisponibil(nu mai este pe stoc) la un anumit moment dat.
+1)Definirea si descrierea pattern-urilor utilizate
+In cadrul proiectului am folosit urmatoarele pattern-uri:factory,strategy,state si singleton.
+Factory
+Pattern ce defineste o metoda pentru crearea de obiecte din aceeasi familie (interfata) in subclase.
+Avantaje: 
+ Toate obiecte create au in comun interfata 
+ Controlul strict al instantierii – obiectele nu sunt create direct prin constructori ci prin metoda de tip factory
+  Diferitele tipuri de obiecte sunt gestionate unitar prin interfata comuna – noi tipuri, din aceeasi familie, pot fi adaugate fara modificari
+  Usor de implementat 
+Pot fi generate obiecte noi care apartin aceleiasi familii (interfata comuna).
+Dezavantaje: 
+ Nu pot fi generate obiecte “noi” 
+Constructorii sunt privati – clasele nu pot fi extinse
+In cadrul proiectului am foslosit Factory pentru creearea obiectelor din familia telefoanelor inteligente:Smartphone Lg,Smartphone Samsung si Smartphone Htc.
+
+Strategy
+ Incapsuleaza diferiti algoritmi.Strategy schimba la run-time funcția executată
+Avantaje:
+Alegerea metodei de prelucrare a datelor se face dinamic, la run-time 
+ Este permisa definirea de noi algoritmi independent de modificarea clasei ce gestioneaza datele
+  Nu impune limite privind un numar maxim de functii/algoritmi ve pot fi folositi
+In cadrul proiectului am folosit Strategy pentru realizarea modului de plata care se decide in momentul platii(la run-time).
+State
+Gestioneaza obiecte al caror comportament depinde de starea lor.Stabilește tipul acțiunii în funcție de starea obiectului
+In cadrul proiectului am folosit state pentru a realiza componenta de evaluare a telefoanelor.
+2.Definirea si detalierea metodelor testate prin Unit Testing
+Metoda adaugaCont().
+Prin metoda adaugaCont() se realizeaza adaugarea sumei de bani platite de client in contul companiei atunci cand acesta efectueaza plata cu cardul.
+ 
+         Metoda adaugaCasa().
+Prin metoda adaugaCasa() se realizeaza adaugarea sumei de bani platite de client in casa de marcat a companiei atunci cand acesta efectueaza plata cash.
+ 
+Metoda sumaPlata()
+Prin metoda sumaPlata () se calculeaza suma ce trebuie platita de client pentru produsele cumparate .
+ 
+Setter-ul setNrProd()
+Prin setter-ul nrProd() se seteaza numarul de produse pe care clientul doreste sa le cumpere.
+ 
+Setter-ul setNume()
+Prin setter-ul setNume() se seteaza numele clientiilor.
+ 
+Setter-ul setNrTel()
+Prin setter-ul setNrTel() se seteaza numarul de telefon al clientiilor.
+ 
+Setter-ul setCnp()
+Prin setter-ul setCnp se seteaza cnp-ul clientiilor.
+ 
+Setter-ul setPret()
+Prin setter-ul setPret se seteaza pretul produselor.
+ 
+Metoda creeazaTelefoane()
+Prin metoda creeazaTelefoane()  prin care se creeaza tipurile de telefoane.
+ 
+Setter-ul setModPlata()
+Prin setter-ul setModPlata() se seteaza modalitate de plata cash sau cu cardul.
+ 
+
+3.Definirea si descrierea Test-case-urilor
+Test case-uri pentru metoda adaugaCont().
+-testare adaugarea sumei de plata pentru produsele cumparate pentru  0
+-testare adaugarea sumei de plata pentru produsele cumparate cu valori negative
+-testare adaugarea sumei de plata pentru produsele cumparate pentru valoare pozitiva maxima admisa
+-testare comportament functie pe diferite valori
+-testare adaugarea sumei de plata pentru valori valide
+Test case-uri pentru metoda adaugaCasa().
+-testare adaugarea sumei de plata pentru produsele cumparate pentru  0
+-testare adaugarea sumei de plata pentru produsele cumparate cu valori negative
+-testare adaugarea sumei de plata pentru produsele cumparate pentru valoare pozitiva maxima admisa
+-testare comportament functie pe diferite valori
+-testare adaugarea sumei de plata pentru valori valide
+Test case-uri pentru setter-ul setNrProd():
+-testare setarea numarului de produse pentru valoarea 0
+-testarea setarea numarului de produse pentru valori negative
+-testare setearea numarului de produse pentru valoare maxima admisa
+Test case-uri pentru metoda sumaPlata():
+-testare comportament functie pe diferite valori
+Test case-uri pentru setter-ul setNume():
+-testare setarea numelui pentru cifre. 
+Test case-uri pentru setter-ul setNrTelefon():
+-testare setarea numarului de telefon lungime prea mare
+-testare setarea numarului de telefon lungime prea scurta
+-testare setarea numarului de telefon prima cifra zero
+Test case-uri pentru setter-ul setCnp()
+-testare setarea cnp-ului lungime prea mare
+-testare setarea cnp-ului lungime prea mica
+Test case-uri pentru setter-ul setPret()
+-testare setarea pretului pentru valoare zero
+-testare setarea pretului pentru valori negative
+-testare setarea pretului pentru o valoare maxima admisa
+Test case-uri pentru metoda creeazaTelefoane()
+-testare comportament functie
+Test case-uri pentru metoda setModalitatePlata()
+-testare comportament functie pentru modalitate plata cash
+-testare comportament functie pentru modalitate plata cu cardul
+
+
+4.Definirea si descrierea Test Suite-ului
+Pentru clasa TestClient avem TestClientSuite:
+-testare comportament functie sumaPlata() pe diferite valori
+-testare setter setNume() setarea numelui pentru cifre
+-testare setter setNrProd() pentru valori aberante
+-testare setter setNrTel() cu privire la lungimea acestuia precum si prima cifra a acestuia 0
+-testare setModalitatePlata() comportament pentru modalitate plata cash sau cu cardul
+Pentru clasa TestCont TestContSuite:
+-testare comportament functie adaugaCont() pe diferite valori
+-testare adaugare suma in cont valori abereante
+
+Pentru clasa TestCasaMarcat avem  TestSuiteCasaMarcat:
+-testare comportament functie adaugaCasa() pe diferite valori
+-testare adaugare suma in casa de marcat valori aberante
+Pentru clasa TestTelefoane  avem TestSuiteTelefoane:
+-testare setter setPret() valori aberante
+-testare comportament functie creeazaTelefoane()
+
+Pentru testarea turor metodelor avem TestSuiteTotal:
+-testare comportament functie sumaPlata() pe diferite valori
+-testare setter setNume() setarea numelui pentru cifre
+-testare setter setNrProd() pentru valori aberante
+-testare setter setNrTel() cu privire la lungimea acestuia precum si prima cifra a acestuia 0
+-testare setModalitatePlata() comportament pentru modalitate plata cash sau cu cardul
+-testare comportament functie adaugaCont() pe diferite valori
+-testare adaugare suma in cont valori abereante
+-testare comportament functie adaugaCasa() pe diferite valori
+-testare adaugare suma in casa de marcat valori aberante
+-testare setter setPret() valori aberante
+-testare comportament functie creeazaTelefoane()
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
