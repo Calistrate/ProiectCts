@@ -1,0 +1,27 @@
+#
+# Valoare initiala cont
+#
+* initial_value 1
+100.0
+#
+* max_value 1
+10000000.5
+#
+* zero_value 1
+0.0
+#
+* invalid_value 1
+50.324
+#
+# Test adaugaCont() cu valori valide
+#
+* ok_values 3
+250.0	350.0
+150.0	250.0
+170.0	270.0
+#
+# Test adaugaCont() cu valori negative
+#
+* negative_values 2
+-150.0
+-230.0
