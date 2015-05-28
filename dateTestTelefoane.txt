@@ -1,0 +1,11 @@
+#
+# Valoare initiala pret
+#
+* initial_value 1
+100
+#
+# Test setPret() cu valori negative
+#
+* negative_values 2
+-156
+-234
